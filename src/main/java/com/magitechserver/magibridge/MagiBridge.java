@@ -256,7 +256,8 @@ public class MagiBridge {
             if (Sponge.getPluginManager().getPlugin("nucleus").isPresent()) {
                 Sponge.getEventManager().registerListeners(this, new NucleusListeners(this));
                 logger.info("Hooking into Nucleus");
-            } else {
+            } 
+            else {
                 logger.error(" ");
                 logger.error(" MagiBridge is configured to hook into Nucleus, but it isn't loaded! Please disable using-nucleus or load Nucleus on your server!");
                 logger.error(" ");

@@ -10,7 +10,7 @@ import com.magitechserver.magibridge.config.categories.Messages;
 import com.magitechserver.magibridge.events.DiscordMessageEvent;
 import com.magitechserver.magibridge.util.Utils;
 import flavor.pie.boop.BoopableChannel;
-import io.github.nucleuspowered.nucleus.api.NucleusAPI;
+import io.github.nucleuspowered.nucleus.api.module.staffchat.NucleusStaffChatChannel;
 import net.dv8tion.jda.api.entities.Message;
 import org.spongepowered.api.Sponge;
 import org.spongepowered.api.text.Text;
@@ -148,7 +148,7 @@ public class ServerMessageBuilder implements MessageBuilder {
                     messageChannel = MessageChannel.TO_ALL;
                 }
             } else {
-                messageChannel = NucleusAPI.getStaffChatService().get().getStaffChat();
+                messageChannel = NucleusStaffChatChannel.TO_ALL;
                 this.format = FormatType.DISCORD_TO_SERVER_STAFF_FORMAT;
             }
 

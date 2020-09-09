@@ -14,6 +14,8 @@ public class Channel {
 
     @Setting(value = "use-nucleus", comment = "Should MagiBridge use Nucleus? If this and use-ultimatechat are both false, MagiBridge will use the vanilla chat system")
     public boolean USE_NUCLEUS = true;
+    @Setting(value = "use-nucleuslegacy", comment = "Turn this option on if using a nucleus version before 2.0.0.")
+    public boolean USE_NUCLEUSLEGACY = false;
     @Setting(value = "use-ultimatechat", comment = "Should MagiBridge use UltimateChat instead? If this and use-nucleus are both false, MagiBridge will use the vanilla chat system")
     public boolean USE_UCHAT = false;
     @Setting(value = "use-webhooks", comment = "Should MagiBridge send messages trough Webhooks instead a bot?")

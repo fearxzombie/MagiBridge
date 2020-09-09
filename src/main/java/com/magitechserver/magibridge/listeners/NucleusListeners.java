@@ -4,7 +4,7 @@ import com.magitechserver.magibridge.MagiBridge;
 import com.magitechserver.magibridge.config.FormatType;
 import com.magitechserver.magibridge.discord.DiscordMessageBuilder;
 import com.magitechserver.magibridge.util.Utils;
-import io.github.nucleuspowered.nucleus.api.events.NucleusAFKEvent;
+import io.github.nucleuspowered.nucleus.api.module.afk.event.NucleusAFKEvent;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.event.Listener;
 import org.spongepowered.api.event.command.SendCommandEvent;
@@ -12,6 +12,7 @@ import org.spongepowered.api.event.filter.cause.Root;
 
 /**
  * Created by Frani on 17/04/2019.
+ * Modified by fearxzombie for Nucleus 2.0 Compatibility on 8/09/2020
  */
 public class NucleusListeners {
 
