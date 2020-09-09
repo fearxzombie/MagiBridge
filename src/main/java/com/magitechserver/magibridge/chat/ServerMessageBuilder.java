@@ -15,13 +15,11 @@ import io.github.nucleuspowered.nucleus.api.module.staffchat.NucleusStaffChatCha
 import io.github.nucleuspowered.nucleus.api.module.staffchat.NucleusStaffChatService;
 import net.dv8tion.jda.api.entities.Message;
 import org.spongepowered.api.Sponge;
-import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.event.Order;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.action.TextActions;
 import org.spongepowered.api.text.channel.MessageChannel;
 import org.spongepowered.api.text.format.TextColors;
-import com.magitechserver.magibridge.util.BridgeCommandSource;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -149,18 +147,15 @@ public class ServerMessageBuilder implements MessageBuilder {
             if (!this.staff) {
                 if (Sponge.getPluginManager().getPlugin("boop").isPresent() && config.CORE.USE_BOOP) {
                     messageChannel = new BoopableChannel(MessageChannel.TO_ALL);
-                    messageChannel.send(Text.of(prefix, Utils.toText(this.format.format(this.placeholders)), attachment));
                 } else {
                     messageChannel = MessageChannel.TO_ALL;
-                    messageChannel.send(Text.of(prefix, Utils.toText(this.format.format(this.placeholders)), attachment));
-               }
+                }
             } else {
+                messageChannel = NucleusStaffChatChannel.TO_NONE;
                 this.format = FormatType.DISCORD_TO_SERVER_STAFF_FORMAT;
-                //Missing a valid CommandSource type to use the nucleus staff chat sender.
-                //NucleusStaffChatService.sendMessageFrom(, Utils.toText(this.format.format(this.placeholders)), attachment);
             }
 
-            
+            messageChannel.send(Text.of(prefix, Utils.toText(this.format.format(this.placeholders)), attachment));
         } else {
             MessageChannel messageChannel = Sponge.getPluginManager().getPlugin("boop").isPresent() ?
                     new BoopableChannel(MessageChannel.TO_ALL) :
